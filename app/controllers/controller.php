@@ -27,6 +27,20 @@ class controller
     //Condicionales
     public static function Condicionales(){
         cabecera();
+
+        $precio = 10000;
+        $iva = 16;
+        $venta = $precio +($precio * $iva / 100);
+        if ($venta >= 100000 && $venta <= 170000) {
+            $mensaje = 'El precio Ideal';
+        }elseif ($venta > 170000) {
+            $mensaje = 'El precio Elevado';
+        }else {
+            $mensaje = 'El precio por debajo';
+        }
+
+        //Condicionales
+        $entrada = false;
         Nav();
         require_once 'app\views\modules\condicionales.phtml';
         piedepagina();
