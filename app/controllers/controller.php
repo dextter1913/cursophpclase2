@@ -1,14 +1,17 @@
-<?php 
+<?php
 
-function cabecera(){
+function cabecera()
+{
     require_once 'app\views\assets\header.html';
 }
 
-function Nav(){
+function Nav()
+{
     require_once 'app\views\assets\nav.phtml';
 }
 
-function piedepagina(){
+function piedepagina()
+{
     require_once 'app\views\assets\footer.html';
 }
 
@@ -16,7 +19,8 @@ function piedepagina(){
 class controller
 {
     //Inicio
-    public static function Inicio(){
+    public static function Inicio()
+    {
         cabecera();
         Nav();
         require_once 'app\views\modules\inicio.phtml';
@@ -25,25 +29,28 @@ class controller
 
 
     //Condicionales
-    public static function Condicionales(){
+    public static function Condicionales()
+    {
         cabecera();
 
+        //Condicional de Valores
         $precio = 10000;
         $iva = 16;
-        $venta = $precio +($precio * $iva / 100);
+        $venta = $precio + ($precio * $iva / 100);
         if ($venta >= 100000 && $venta <= 170000) {
             $mensaje = 'El precio Ideal';
-        }elseif ($venta > 170000) {
+        } elseif ($venta > 170000 && $iva > 0) {
             $mensaje = 'El precio Elevado';
-        }else {
-            $mensaje = 'El precio por debajo';
+        } elseif ($iva > 0) {
+            $mensaje = 'El precio esta por debajo';
+        } else {
+            $mensaje = 'Debo validar que el iva sea mayor que cero';
         }
 
-        //Condicionales
+        //Condicional de Entrada Mostrada en la vista
         $entrada = false;
         Nav();
         require_once 'app\views\modules\condicionales.phtml';
         piedepagina();
     }
 }
-?>
