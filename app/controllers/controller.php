@@ -33,6 +33,29 @@ class controller
     {
         cabecera();
 
+        //Evaluar de una divicion si el valor de 1 imprima resultado deficiente, regular, bueno o excelente
+        $valor1 = 8;
+        $valor2 = 2;
+        $resultado = $valor1 / $valor2;
+
+        switch ($resultado) {
+            case 1:
+                $mensajeswitch = 'Resultado Deficiente';
+                break;
+            case 2:
+                $mensajeswitch = 'Resultado Regular';
+                break;
+            case 3:
+                $mensajeswitch = 'Resultado Bueno';
+                break;
+            case 4:
+                $mensajeswitch = 'Resultado excelente';
+                break;
+            default:
+                $mensajeswitch = 'Fuera del parametro';
+                break;
+        }
+
         //Condicional de Valores
         $precio = 10000;
         $iva = 16;
