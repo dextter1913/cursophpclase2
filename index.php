@@ -11,4 +11,5 @@ if (isset($_GET['controller'])) {
 }else {
     header('Location:Inicio');
 }
+//Esto es un comentario
 ?>
